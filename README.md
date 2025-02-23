@@ -1,0 +1,1 @@
+[![GitHub Action](https://github.com/YannameY/io.swagger.petstore.project/actions/workflows/maven.yml/badge.svg)](https://github.com/YannameY/io.swagger.petstore.project/actions/workflows/maven.yml)
