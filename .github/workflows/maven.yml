@@ -2,9 +2,9 @@ name: GitHub Action
 
 on:
   push:
-    branches: [ "Tests" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "Tests" ]
+    branches: [ "master" ]
 jobs:
   build:
 
