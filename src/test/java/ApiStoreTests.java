@@ -80,7 +80,7 @@ public class ApiStoreTests {
                 .log().all()
                 .when().get(BaseURI + "store/inventory")
                 .then().log().all();
-        response.statusCode(201);
+        response.statusCode(200);
 
 
     }
