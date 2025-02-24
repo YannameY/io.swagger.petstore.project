@@ -2,6 +2,7 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -35,6 +36,7 @@ public class ApiPetTests {
         given()
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .body(bodyJson)
                 .when().post(BaseURI + "pet")
@@ -59,6 +61,7 @@ public class ApiPetTests {
 
         given()
                 .header("accept", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().get(BaseURI + "pet/1")
                 .then().log().all()
@@ -83,6 +86,7 @@ public class ApiPetTests {
         given()
                 .header("accept", "application/json")
                 .queryParam("status", "available")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().get(BaseURI + "pet/findByStatus")
                 .then().log().all()
@@ -118,6 +122,7 @@ public class ApiPetTests {
         given()
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .body(bodyJson)
                 .when().put(BaseURI + "pet")
@@ -142,6 +147,7 @@ public class ApiPetTests {
 
         given()
                 .header("accept", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().delete(BaseURI + "pet/1")
                 .then().log().all()

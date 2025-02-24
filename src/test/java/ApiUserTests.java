@@ -1,6 +1,7 @@
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
 
@@ -33,6 +34,7 @@ public class ApiUserTests {
         ValidatableResponse response = given()
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .body(bodyJson)
                 .when().post(BaseURI + "user/createWithList")
@@ -55,6 +57,7 @@ public class ApiUserTests {
 
         ValidatableResponse response = given()
                 .header("accept", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().get(BaseURI + "user/string")
                 .then().log().all();
@@ -95,6 +98,7 @@ public class ApiUserTests {
         ValidatableResponse response = given()
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .body(bodyJson)
                 .when().put(BaseURI + "user/1")
@@ -118,6 +122,7 @@ public class ApiUserTests {
         ValidatableResponse response = given()
                 .header("accept", "application/json")
                 .header("content-type", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().delete(BaseURI + "user/string")
                 .then().log().all();
@@ -140,6 +145,7 @@ public class ApiUserTests {
                 .header("accept", "application/json")
                 .queryParam("username", "admin")
                 .queryParam("password", "admin")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().get(BaseURI + "user/login")
                 .then().log().all();
@@ -161,6 +167,7 @@ public class ApiUserTests {
 
         ValidatableResponse response = given()
                 .header("accept", "application/json")
+                .filter(new AllureRestAssured())
                 .log().all()
                 .when().get(BaseURI + "user/logout")
                 .then().log().all();
